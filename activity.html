@@ -1,0 +1,908 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Activity | IG Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <header class="mb-8 flex justify-between items-end">
+            <div>
+                <h1 class="text-3xl font-black text-slate-900 tracking-tight">Activity Status</h1>
+                <p class="text-slate-500 font-medium">Monitoring upload frequency for all accounts</p>
+            </div>
+            <a href="index.html" class="bg-white text-slate-900 border border-slate-200 px-6 py-2.5 rounded-xl font-bold text-sm hover:bg-slate-50 transition-all flex items-center gap-2 shadow-sm">
+                Back to Dashboard
+            </a>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 text-center">
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Total Pages</p>
+                <p class="text-3xl font-black text-slate-900 mt-2">34</p>
+                <p class="text-[10px] text-slate-400 mt-1">Tracked Accounts</p>
+            </div>
+            <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 text-center">
+                <p class="text-xs font-bold text-green-500 uppercase tracking-widest">Active</p>
+                <p class="text-3xl font-black text-slate-900 mt-2">9</p>
+                <p class="text-[10px] text-slate-400 mt-1">Posted Today</p>
+            </div>
+            <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 text-center">
+                <p class="text-xs font-bold text-yellow-500 uppercase tracking-widest">Dormant</p>
+                <p class="text-3xl font-black text-slate-900 mt-2">13</p>
+                <p class="text-[10px] text-slate-400 mt-1">1-7 days since last post</p>
+            </div>
+            <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 text-center">
+                <p class="text-xs font-bold text-red-500 uppercase tracking-widest">Inactive</p>
+                <p class="text-3xl font-black text-slate-900 mt-2">12</p>
+                <p class="text-[10px] text-slate-400 mt-1">No posts in 7+ days</p>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-slate-200">
+                    <thead>
+                        <tr>
+                            <th onclick="sortTable(0)" class="px-6 py-4 text-left text-xs font-black text-slate-500 uppercase tracking-widest cursor-pointer hover:bg-slate-100">Page</th>
+                            <th onclick="sortTable(1)" class="px-6 py-4 text-center text-xs font-black text-slate-500 uppercase tracking-widest cursor-pointer hover:bg-slate-100">Status</th>
+                            <th onclick="sortTable(2)" class="px-6 py-4 text-center text-xs font-black text-slate-500 uppercase tracking-widest cursor-pointer hover:bg-slate-100">Relative Time</th>
+                            <th onclick="sortTable(3)" class="px-6 py-4 text-center text-xs font-black text-slate-500 uppercase tracking-widest cursor-pointer hover:bg-slate-100">Last Upload</th>
+                            <th class="px-6 py-4 text-right text-xs font-black text-slate-500 uppercase tracking-widest">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-slate-200">
+                        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200">
+                <div class="flex items-center">
+                    <div class="text-sm font-bold text-slate-900">@0neluffy</div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border text-yellow-600 bg-yellow-50 border-yellow-200">
+                    <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+                    Dormant
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-900 text-center font-bold">
+                Yesterday
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-500 text-center font-medium">
+                2026-03-04
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-right text-sm font-medium">
+                <a href="https://instagram.com/0neluffy" target="_blank" class="text-blue-600 hover:text-blue-900 px-3 py-1 bg-blue-50 rounded-md transition-colors">Visit</a>
+            </td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200">
+                <div class="flex items-center">
+                    <div class="text-sm font-bold text-slate-900">@24am.meme</div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border text-yellow-600 bg-yellow-50 border-yellow-200">
+                    <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+                    Dormant
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-900 text-center font-bold">
+                4 days ago
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-500 text-center font-medium">
+                2026-03-01
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-right text-sm font-medium">
+                <a href="https://instagram.com/24am.meme" target="_blank" class="text-blue-600 hover:text-blue-900 px-3 py-1 bg-blue-50 rounded-md transition-colors">Visit</a>
+            </td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200">
+                <div class="flex items-center">
+                    <div class="text-sm font-bold text-slate-900">@69templates</div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border text-slate-500 bg-slate-50 border-slate-200">
+                    <span class="w-2 h-2 rounded-full bg-slate-400"></span>
+                    Inactive
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-900 text-center font-bold">
+                N/A
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-500 text-center font-medium">
+                Error/Unknown
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-right text-sm font-medium">
+                <a href="https://instagram.com/69templates" target="_blank" class="text-blue-600 hover:text-blue-900 px-3 py-1 bg-blue-50 rounded-md transition-colors">Visit</a>
+            </td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200">
+                <div class="flex items-center">
+                    <div class="text-sm font-bold text-slate-900">@arise_350</div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border text-red-600 bg-red-50 border-red-200">
+                    <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                    Inactive
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-900 text-center font-bold">
+                73 days ago
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-500 text-center font-medium">
+                2025-12-22
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-right text-sm font-medium">
+                <a href="https://instagram.com/arise_350" target="_blank" class="text-blue-600 hover:text-blue-900 px-3 py-1 bg-blue-50 rounded-md transition-colors">Visit</a>
+            </td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200">
+                <div class="flex items-center">
+                    <div class="text-sm font-bold text-slate-900">@arisesolo.app</div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border text-yellow-600 bg-yellow-50 border-yellow-200">
+                    <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+                    Dormant
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-900 text-center font-bold">
+                4 days ago
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-500 text-center font-medium">
+                2026-03-01
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-right text-sm font-medium">
+                <a href="https://instagram.com/arisesolo.app" target="_blank" class="text-blue-600 hover:text-blue-900 px-3 py-1 bg-blue-50 rounded-md transition-colors">Visit</a>
+            </td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200">
+                <div class="flex items-center">
+                    <div class="text-sm font-bold text-slate-900">@bestsmusicz</div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border text-red-600 bg-red-50 border-red-200">
+                    <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                    Inactive
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-900 text-center font-bold">
+                16 days ago
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-500 text-center font-medium">
+                2026-02-17
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-right text-sm font-medium">
+                <a href="https://instagram.com/bestsmusicz" target="_blank" class="text-blue-600 hover:text-blue-900 px-3 py-1 bg-blue-50 rounded-md transition-colors">Visit</a>
+            </td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200">
+                <div class="flex items-center">
+                    <div class="text-sm font-bold text-slate-900">@blueai2</div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border text-red-600 bg-red-50 border-red-200">
+                    <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                    Inactive
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-900 text-center font-bold">
+                15 days ago
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-500 text-center font-medium">
+                2026-02-18
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-right text-sm font-medium">
+                <a href="https://instagram.com/blueai2" target="_blank" class="text-blue-600 hover:text-blue-900 px-3 py-1 bg-blue-50 rounded-md transition-colors">Visit</a>
+            </td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200">
+                <div class="flex items-center">
+                    <div class="text-sm font-bold text-slate-900">@bluelock.global</div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border text-yellow-600 bg-yellow-50 border-yellow-200">
+                    <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+                    Dormant
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-900 text-center font-bold">
+                Yesterday
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-500 text-center font-medium">
+                2026-03-04
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-right text-sm font-medium">
+                <a href="https://instagram.com/bluelock.global" target="_blank" class="text-blue-600 hover:text-blue-900 px-3 py-1 bg-blue-50 rounded-md transition-colors">Visit</a>
+            </td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200">
+                <div class="flex items-center">
+                    <div class="text-sm font-bold text-slate-900">@cashclymb</div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border text-yellow-600 bg-yellow-50 border-yellow-200">
+                    <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+                    Dormant
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-900 text-center font-bold">
+                Yesterday
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-500 text-center font-medium">
+                2026-03-04
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-right text-sm font-medium">
+                <a href="https://instagram.com/cashclymb" target="_blank" class="text-blue-600 hover:text-blue-900 px-3 py-1 bg-blue-50 rounded-md transition-colors">Visit</a>
+            </td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200">
+                <div class="flex items-center">
+                    <div class="text-sm font-bold text-slate-900">@cuteclips.mp4</div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border text-green-600 bg-green-50 border-green-200">
+                    <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                    Active
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-900 text-center font-bold">
+                Today
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-500 text-center font-medium">
+                2026-03-05
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-right text-sm font-medium">
+                <a href="https://instagram.com/cuteclips.mp4" target="_blank" class="text-blue-600 hover:text-blue-900 px-3 py-1 bg-blue-50 rounded-md transition-colors">Visit</a>
+            </td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200">
+                <div class="flex items-center">
+                    <div class="text-sm font-bold text-slate-900">@dirtyreels.hub</div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border text-green-600 bg-green-50 border-green-200">
+                    <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                    Active
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-900 text-center font-bold">
+                Today
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-500 text-center font-medium">
+                2026-03-05
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-right text-sm font-medium">
+                <a href="https://instagram.com/dirtyreels.hub" target="_blank" class="text-blue-600 hover:text-blue-900 px-3 py-1 bg-blue-50 rounded-md transition-colors">Visit</a>
+            </td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200">
+                <div class="flex items-center">
+                    <div class="text-sm font-bold text-slate-900">@explainforu</div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border text-green-600 bg-green-50 border-green-200">
+                    <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                    Active
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-900 text-center font-bold">
+                Today
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-500 text-center font-medium">
+                2026-03-05
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-right text-sm font-medium">
+                <a href="https://instagram.com/explainforu" target="_blank" class="text-blue-600 hover:text-blue-900 px-3 py-1 bg-blue-50 rounded-md transition-colors">Visit</a>
+            </td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200">
+                <div class="flex items-center">
+                    <div class="text-sm font-bold text-slate-900">@familyguys.mp4</div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border text-yellow-600 bg-yellow-50 border-yellow-200">
+                    <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+                    Dormant
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-900 text-center font-bold">
+                Yesterday
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-500 text-center font-medium">
+                2026-03-04
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-right text-sm font-medium">
+                <a href="https://instagram.com/familyguys.mp4" target="_blank" class="text-blue-600 hover:text-blue-900 px-3 py-1 bg-blue-50 rounded-md transition-colors">Visit</a>
+            </td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200">
+                <div class="flex items-center">
+                    <div class="text-sm font-bold text-slate-900">@forexjournal.app</div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border text-red-600 bg-red-50 border-red-200">
+                    <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                    Inactive
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-900 text-center font-bold">
+                54 days ago
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-500 text-center font-medium">
+                2026-01-10
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-right text-sm font-medium">
+                <a href="https://instagram.com/forexjournal.app" target="_blank" class="text-blue-600 hover:text-blue-900 px-3 py-1 bg-blue-50 rounded-md transition-colors">Visit</a>
+            </td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200">
+                <div class="flex items-center">
+                    <div class="text-sm font-bold text-slate-900">@fypbade</div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border text-red-600 bg-red-50 border-red-200">
+                    <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                    Inactive
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-900 text-center font-bold">
+                15 days ago
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-500 text-center font-medium">
+                2026-02-18
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-right text-sm font-medium">
+                <a href="https://instagram.com/fypbade" target="_blank" class="text-blue-600 hover:text-blue-900 px-3 py-1 bg-blue-50 rounded-md transition-colors">Visit</a>
+            </td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200">
+                <div class="flex items-center">
+                    <div class="text-sm font-bold text-slate-900">@holy.fyp</div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border text-yellow-600 bg-yellow-50 border-yellow-200">
+                    <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+                    Dormant
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-900 text-center font-bold">
+                Yesterday
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-500 text-center font-medium">
+                2026-03-04
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-right text-sm font-medium">
+                <a href="https://instagram.com/holy.fyp" target="_blank" class="text-blue-600 hover:text-blue-900 px-3 py-1 bg-blue-50 rounded-md transition-colors">Visit</a>
+            </td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200">
+                <div class="flex items-center">
+                    <div class="text-sm font-bold text-slate-900">@jinwoo.system</div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border text-red-600 bg-red-50 border-red-200">
+                    <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                    Inactive
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-900 text-center font-bold">
+                12 days ago
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-500 text-center font-medium">
+                2026-02-21
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-right text-sm font-medium">
+                <a href="https://instagram.com/jinwoo.system" target="_blank" class="text-blue-600 hover:text-blue-900 px-3 py-1 bg-blue-50 rounded-md transition-colors">Visit</a>
+            </td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200">
+                <div class="flex items-center">
+                    <div class="text-sm font-bold text-slate-900">@lostzorotaro</div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border text-yellow-600 bg-yellow-50 border-yellow-200">
+                    <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+                    Dormant
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-900 text-center font-bold">
+                Yesterday
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-500 text-center font-medium">
+                2026-03-04
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-right text-sm font-medium">
+                <a href="https://instagram.com/lostzorotaro" target="_blank" class="text-blue-600 hover:text-blue-900 px-3 py-1 bg-blue-50 rounded-md transition-colors">Visit</a>
+            </td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200">
+                <div class="flex items-center">
+                    <div class="text-sm font-bold text-slate-900">@memeflow.app</div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border text-green-600 bg-green-50 border-green-200">
+                    <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                    Active
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-900 text-center font-bold">
+                Today
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-500 text-center font-medium">
+                2026-03-05
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-right text-sm font-medium">
+                <a href="https://instagram.com/memeflow.app" target="_blank" class="text-blue-600 hover:text-blue-900 px-3 py-1 bg-blue-50 rounded-md transition-colors">Visit</a>
+            </td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200">
+                <div class="flex items-center">
+                    <div class="text-sm font-bold text-slate-900">@quotevib</div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border text-slate-500 bg-slate-50 border-slate-200">
+                    <span class="w-2 h-2 rounded-full bg-slate-400"></span>
+                    Inactive
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-900 text-center font-bold">
+                N/A
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-500 text-center font-medium">
+                Error/Unknown
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-right text-sm font-medium">
+                <a href="https://instagram.com/quotevib" target="_blank" class="text-blue-600 hover:text-blue-900 px-3 py-1 bg-blue-50 rounded-md transition-colors">Visit</a>
+            </td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200">
+                <div class="flex items-center">
+                    <div class="text-sm font-bold text-slate-900">@retro.onepiece</div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border text-green-600 bg-green-50 border-green-200">
+                    <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                    Active
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-900 text-center font-bold">
+                Today
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-500 text-center font-medium">
+                2026-03-05
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-right text-sm font-medium">
+                <a href="https://instagram.com/retro.onepiece" target="_blank" class="text-blue-600 hover:text-blue-900 px-3 py-1 bg-blue-50 rounded-md transition-colors">Visit</a>
+            </td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200">
+                <div class="flex items-center">
+                    <div class="text-sm font-bold text-slate-900">@s.t.o.i.c.z</div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border text-red-600 bg-red-50 border-red-200">
+                    <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                    Inactive
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-900 text-center font-bold">
+                15 days ago
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-500 text-center font-medium">
+                2026-02-18
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-right text-sm font-medium">
+                <a href="https://instagram.com/s.t.o.i.c.z" target="_blank" class="text-blue-600 hover:text-blue-900 px-3 py-1 bg-blue-50 rounded-md transition-colors">Visit</a>
+            </td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200">
+                <div class="flex items-center">
+                    <div class="text-sm font-bold text-slate-900">@sololeveling.gym</div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border text-red-600 bg-red-50 border-red-200">
+                    <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                    Inactive
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-900 text-center font-bold">
+                289 days ago
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-500 text-center font-medium">
+                2025-05-20
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-right text-sm font-medium">
+                <a href="https://instagram.com/sololeveling.gym" target="_blank" class="text-blue-600 hover:text-blue-900 px-3 py-1 bg-blue-50 rounded-md transition-colors">Visit</a>
+            </td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200">
+                <div class="flex items-center">
+                    <div class="text-sm font-bold text-slate-900">@sololeveling.news</div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border text-green-600 bg-green-50 border-green-200">
+                    <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                    Active
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-900 text-center font-bold">
+                Today
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-500 text-center font-medium">
+                2026-03-05
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-right text-sm font-medium">
+                <a href="https://instagram.com/sololeveling.news" target="_blank" class="text-blue-600 hover:text-blue-900 px-3 py-1 bg-blue-50 rounded-md transition-colors">Visit</a>
+            </td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200">
+                <div class="flex items-center">
+                    <div class="text-sm font-bold text-slate-900">@sololeveling.quests</div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border text-red-600 bg-red-50 border-red-200">
+                    <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                    Inactive
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-900 text-center font-bold">
+                89 days ago
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-500 text-center font-medium">
+                2025-12-06
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-right text-sm font-medium">
+                <a href="https://instagram.com/sololeveling.quests" target="_blank" class="text-blue-600 hover:text-blue-900 px-3 py-1 bg-blue-50 rounded-md transition-colors">Visit</a>
+            </td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200">
+                <div class="flex items-center">
+                    <div class="text-sm font-bold text-slate-900">@sololeveling.us</div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border text-yellow-600 bg-yellow-50 border-yellow-200">
+                    <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+                    Dormant
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-900 text-center font-bold">
+                7 days ago
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-500 text-center font-medium">
+                2026-02-26
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-right text-sm font-medium">
+                <a href="https://instagram.com/sololeveling.us" target="_blank" class="text-blue-600 hover:text-blue-900 px-3 py-1 bg-blue-50 rounded-md transition-colors">Visit</a>
+            </td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200">
+                <div class="flex items-center">
+                    <div class="text-sm font-bold text-slate-900">@sololeveling.workout</div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border text-yellow-600 bg-yellow-50 border-yellow-200">
+                    <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+                    Dormant
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-900 text-center font-bold">
+                5 days ago
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-500 text-center font-medium">
+                2026-02-28
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-right text-sm font-medium">
+                <a href="https://instagram.com/sololeveling.workout" target="_blank" class="text-blue-600 hover:text-blue-900 px-3 py-1 bg-blue-50 rounded-md transition-colors">Visit</a>
+            </td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200">
+                <div class="flex items-center">
+                    <div class="text-sm font-bold text-slate-900">@soultangle</div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border text-yellow-600 bg-yellow-50 border-yellow-200">
+                    <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+                    Dormant
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-900 text-center font-bold">
+                Yesterday
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-500 text-center font-medium">
+                2026-03-04
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-right text-sm font-medium">
+                <a href="https://instagram.com/soultangle" target="_blank" class="text-blue-600 hover:text-blue-900 px-3 py-1 bg-blue-50 rounded-md transition-colors">Visit</a>
+            </td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200">
+                <div class="flex items-center">
+                    <div class="text-sm font-bold text-slate-900">@stoic.zoro</div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border text-green-600 bg-green-50 border-green-200">
+                    <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                    Active
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-900 text-center font-bold">
+                Today
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-500 text-center font-medium">
+                2026-03-05
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-right text-sm font-medium">
+                <a href="https://instagram.com/stoic.zoro" target="_blank" class="text-blue-600 hover:text-blue-900 px-3 py-1 bg-blue-50 rounded-md transition-colors">Visit</a>
+            </td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200">
+                <div class="flex items-center">
+                    <div class="text-sm font-bold text-slate-900">@stoicjinwoo</div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border text-green-600 bg-green-50 border-green-200">
+                    <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                    Active
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-900 text-center font-bold">
+                Today
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-500 text-center font-medium">
+                2026-03-05
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-right text-sm font-medium">
+                <a href="https://instagram.com/stoicjinwoo" target="_blank" class="text-blue-600 hover:text-blue-900 px-3 py-1 bg-blue-50 rounded-md transition-colors">Visit</a>
+            </td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200">
+                <div class="flex items-center">
+                    <div class="text-sm font-bold text-slate-900">@trade.fyp</div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border text-yellow-600 bg-yellow-50 border-yellow-200">
+                    <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+                    Dormant
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-900 text-center font-bold">
+                Yesterday
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-500 text-center font-medium">
+                2026-03-04
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-right text-sm font-medium">
+                <a href="https://instagram.com/trade.fyp" target="_blank" class="text-blue-600 hover:text-blue-900 px-3 py-1 bg-blue-50 rounded-md transition-colors">Visit</a>
+            </td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200">
+                <div class="flex items-center">
+                    <div class="text-sm font-bold text-slate-900">@trade_350</div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border text-red-600 bg-red-50 border-red-200">
+                    <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                    Inactive
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-900 text-center font-bold">
+                100 days ago
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-500 text-center font-medium">
+                2025-11-25
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-right text-sm font-medium">
+                <a href="https://instagram.com/trade_350" target="_blank" class="text-blue-600 hover:text-blue-900 px-3 py-1 bg-blue-50 rounded-md transition-colors">Visit</a>
+            </td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200">
+                <div class="flex items-center">
+                    <div class="text-sm font-bold text-slate-900">@weinterarc</div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border text-yellow-600 bg-yellow-50 border-yellow-200">
+                    <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+                    Dormant
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-900 text-center font-bold">
+                Yesterday
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-500 text-center font-medium">
+                2026-03-04
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-right text-sm font-medium">
+                <a href="https://instagram.com/weinterarc" target="_blank" class="text-blue-600 hover:text-blue-900 px-3 py-1 bg-blue-50 rounded-md transition-colors">Visit</a>
+            </td>
+        </tr>
+        
+        <tr class="hover:bg-slate-50 transition-colors">
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200">
+                <div class="flex items-center">
+                    <div class="text-sm font-bold text-slate-900">@xaudollar</div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border text-green-600 bg-green-50 border-green-200">
+                    <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                    Active
+                </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-900 text-center font-bold">
+                Today
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-sm text-slate-500 text-center font-medium">
+                2026-03-05
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap border-b border-slate-200 text-right text-sm font-medium">
+                <a href="https://instagram.com/xaudollar" target="_blank" class="text-blue-600 hover:text-blue-900 px-3 py-1 bg-blue-50 rounded-md transition-colors">Visit</a>
+            </td>
+        </tr>
+        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function sortTable(n) {
+            var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+            table = document.querySelector("table");
+            switching = true;
+            dir = "asc";
+            while (switching) {
+                switching = false;
+                rows = table.rows;
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    x = rows[i].getElementsByTagName("TD")[n];
+                    y = rows[i + 1].getElementsByTagName("TD")[n];
+                    
+                    let xVal = x.innerText.toLowerCase();
+                    let yVal = y.innerText.toLowerCase();
+
+                    // Special handling for relative time columns
+                    if (n === 2) {
+                        const getDays = (str) => {
+                            if (str.includes("today")) return 0;
+                            if (str.includes("yesterday")) return 1;
+                            const match = str.match(/(\d+)/);
+                            return match ? parseInt(match[1]) : 9999;
+                        };
+                        xVal = getDays(xVal);
+                        yVal = getDays(yVal);
+                    } else if (n === 1) { // Status sorting
+                        const statusOrder = { "active": 0, "dormant": 1, "inactive": 2, "unknown": 3 };
+                        xVal = statusOrder[xVal] ?? 4;
+                        yVal = statusOrder[yVal] ?? 4;
+                    }
+
+                    if (dir == "asc") {
+                        if (xVal > yVal) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    } else if (dir == "desc") {
+                        if (xVal < yVal) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                    switchcount ++;
+                } else {
+                    if (switchcount == 0 && dir == "asc") {
+                        dir = "desc";
+                        switching = true;
+                    }
+                }
+            }
+        }
+    </script>
+    
+</body>
+</html>
+    
