@@ -54,7 +54,14 @@ def generate_html():
 
 def generate_index_page(rows, target_handles, activity_data, html_file):
     total_followers, total_growth_24h, top_performer, max_growth = 0, 0, "N/A", -1
-    last_updated = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    
+    # Use the modification time of the CSV as the "Last Data Fetch" time
+    csv_file = os.path.join(os.path.dirname(html_file), 'data', 'ig_growth_tracker_wide.csv')
+    if os.path.exists(csv_file):
+        mtime = os.path.getmtime(csv_file)
+        last_updated = datetime.fromtimestamp(mtime).strftime("%Y-%m-%d %H:%M:%S")
+    else:
+        last_updated = "Unknown"
     
     if len(rows) >= 1:
         latest_row = rows[0]  # Rows are already sorted newest first
@@ -196,7 +203,7 @@ def generate_index_page(rows, target_handles, activity_data, html_file):
             <div>
                 <h1 class="text-3xl font-black text-slate-900 tracking-tight">Instagram Growth Log</h1>
                 <p class="text-slate-500 font-medium">Historical follower data across all accounts</p>
-                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">Last Updated: {last_updated}</p>
+                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">Last Data Fetch: {last_updated}</p>
             </div>
             <div class="flex gap-3">
                 <a href="activity.html" class="bg-white text-slate-900 border border-slate-200 px-6 py-2.5 rounded-xl font-bold text-sm hover:bg-slate-50 transition-all flex items-center gap-2 shadow-sm">
@@ -249,7 +256,14 @@ def generate_activity_page(target_handles, activity_data, html_file):
     rows_html = ""
     active_count, dormant_count, inactive_count = 0, 0, 0
     total_pages = len(target_handles)
-    last_updated = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    
+    # Use the modification time of the activity CSV as the "Last Data Fetch" time
+    activity_csv = os.path.join(os.path.dirname(html_file), 'data', 'ig_activity_tracker.csv')
+    if os.path.exists(activity_csv):
+        mtime = os.path.getmtime(activity_csv)
+        last_updated = datetime.fromtimestamp(mtime).strftime("%Y-%m-%d %H:%M:%S")
+    else:
+        last_updated = "Unknown"
     
     for handle in target_handles:
         last_date = activity_data.get(handle, 'Unknown')
@@ -392,7 +406,7 @@ def generate_activity_page(target_handles, activity_data, html_file):
             <div>
                 <h1 class="text-3xl font-black text-slate-900 tracking-tight">Activity Status</h1>
                 <p class="text-slate-500 font-medium">Monitoring upload frequency for all accounts</p>
-                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">Last Updated: {last_updated}</p>
+                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">Last Data Fetch: {last_updated}</p>
             </div>
             <a href="index.html" class="bg-white text-slate-900 border border-slate-200 px-6 py-2.5 rounded-xl font-bold text-sm hover:bg-slate-50 transition-all flex items-center gap-2 shadow-sm">
                 Back to Dashboard
