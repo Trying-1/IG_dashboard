@@ -184,110 +184,17 @@ def generate_index_page(rows, target_handles, activity_data, html_file):
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instagram Growth Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root {
-            --slate-50: #f8fafc;
-            --slate-100: #f1f5f9;
-            --slate-200: #e2e8f0;
-            --slate-400: #94a3b8;
-            --slate-500: #64748b;
-            --slate-700: #334155;
-            --slate-800: #1e293b;
-            --slate-900: #0f172a;
-            --green-50: #f0fdf4;
-            --green-500: #22c55e;
-            --green-600: #16a34a;
-            --red-50: #fef2f2;
-            --red-600: #dc2626;
-            --blue-50: #eff6ff;
-            --blue-500: #3b82f6;
-            --blue-600: #2563eb;
-        }
-        
-        body { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background-color: var(--slate-50); margin: 0; padding: 1rem; }
-        @media (min-width: 768px) { body { padding: 2rem; } }
-        
-        .max-w-full { max-width: 100%; margin-left: auto; margin-right: auto; }
-        .flex { display: flex; }
-        .justify-between { justify-content: space-between; }
-        .items-end { align-items: flex-end; }
-        .mb-8 { margin-bottom: 2rem; }
-        .mt-1 { margin-top: 0.25rem; }
-        .mt-2 { margin-top: 0.5rem; }
-        .gap-3 { gap: 0.75rem; }
-        .gap-6 { gap: 1.5rem; }
-        
-        .text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
-        .font-black { font-weight: 900; }
-        .text-slate-900 { color: var(--slate-900); }
-        .tracking-tight { letter-spacing: -0.025em; }
-        .text-slate-500 { color: var(--slate-500); }
-        .text-slate-400 { color: var(--slate-400); }
-        .font-medium { font-weight: 500; }
-        .font-bold { font-weight: 700; }
-        .text-[10px] { font-size: 10px; }
-        .uppercase { text-transform: uppercase; }
-        .tracking-widest { letter-spacing: 0.1em; }
-        
-        .bg-white { background-color: #ffffff; }
-        .border { border-width: 1px; border-style: solid; }
-        .border-slate-200 { border-color: var(--slate-200); }
-        .rounded-xl { border-radius: 0.75rem; }
-        .rounded-3xl { border-radius: 1.5rem; }
-        .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
-        .py-2\.5 { padding-top: 0.625rem; padding-bottom: 0.625rem; }
-        .text-sm { font-size: 0.875rem; }
-        .shadow-sm { box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); }
-        .transition-all { transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
-        .items-center { align-items: center; }
-        .gap-2 { gap: 0.5rem; }
-        .no-underline { text-decoration: none; }
-        
-        .grid { display: grid; }
-        .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
-        @media (min-width: 768px) { .grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-        
-        .p-6 { padding: 1.5rem; }
-        .text-center { text-align: center; }
-        .text-xs { font-size: 0.75rem; }
-        .tracking-widest { letter-spacing: 0.1em; }
-        .text-green-500 { color: var(--green-500); }
-        .text-blue-500 { color: var(--blue-500); }
-        
-        .overflow-hidden { overflow: hidden; }
-        .table-container { max-height: calc(100vh - 150px); overflow: auto; }
-        .min-w-full { min-width: 100%; }
-        .divide-y > * + * { border-top-width: 1px; }
-        .divide-slate-200 > * + * { border-color: var(--slate-200); }
-        
-        th, td { padding: 0.5rem; text-align: left; }
-        th { font-size: 0.75rem; font-weight: 700; color: var(--slate-500); text-transform: uppercase; background-color: var(--slate-50); border-bottom: 1px solid var(--slate-200); border-right: 1px solid var(--slate-200); }
-        td { font-size: 10px; border-bottom: 1px solid var(--slate-100); border-right: 1px solid var(--slate-100); }
-        
-        .sticky-top { position: sticky; top: 0; z-index: 10; }
-        .sticky-col { position: sticky; left: 0; z-index: 20; background-color: var(--slate-50) !important; }
-        .sticky-top.sticky-col { z-index: 30; }
-        
-        .tabular-nums { font-variant-numeric: tabular-nums; }
-        .text-green-600 { color: var(--green-600); }
-        .bg-green-50 { background-color: var(--green-50); }
-        .text-red-600 { color: var(--red-600); }
-        .bg-red-50 { background-color: var(--red-50); }
-        .ml-1 { margin-left: 0.25rem; }
-        .rounded { border-radius: 0.25rem; }
-        
-        .hidden { display: none; }
-        .bg-slate-900 { background-color: var(--slate-900); }
-        .text-white { color: #ffffff; }
-        
-        ::-webkit-scrollbar { width: 6px; height: 6px; }
-        ::-webkit-scrollbar-track { background: #f1f5f9; }
-        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
-        
-        .cursor-pointer { cursor: pointer; }
-        .hover\:bg-slate-100:hover { background-color: var(--slate-100); }
-        .hover\:bg-slate-50:hover { background-color: var(--slate-50); }
+        .table-container {{ max-height: calc(100vh - 150px); overflow: auto; }}
+        .sticky-top {{ position: sticky; top: 0; z-index: 10; }}
+        .sticky-col {{ position: sticky; left: 0; z-index: 20; background-color: #f8fafc !important; }}
+        .sticky-top.sticky-col {{ z-index: 30; }}
+        table {{ border-collapse: separate; border-spacing: 0; }}
+        ::-webkit-scrollbar {{ width: 6px; height: 6px; }}
+        ::-webkit-scrollbar-track {{ background: #f1f5f9; }}
+        ::-webkit-scrollbar-thumb {{ background: #cbd5e1; border-radius: 3px; }}
+        ::-webkit-scrollbar-thumb:hover {{ background: #94a3b8; }}
     </style>
 </head>
 <body class="bg-slate-50 p-4 md:p-8">
@@ -299,7 +206,7 @@ def generate_index_page(rows, target_handles, activity_data, html_file):
                 <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">Last Data Fetch: {last_updated}</p>
             </div>
             <div class="flex gap-3">
-                <a href="activity.html" class="bg-white text-slate-900 border border-slate-200 px-6 py-2.5 rounded-xl font-bold text-sm hover:bg-slate-50 transition-all flex items-center gap-2 shadow-sm no-underline">
+                <a href="activity.html" class="bg-white text-slate-900 border border-slate-200 px-6 py-2.5 rounded-xl font-bold text-sm hover:bg-slate-50 transition-all flex items-center gap-2 shadow-sm">
                     View Activity Status
                 </a>
                 <!-- Update button disabled for GitHub Pages as it requires a running backend -->
@@ -446,7 +353,7 @@ def generate_activity_page(target_handles, activity_data, html_file):
                         const getDays = (str) => {
                             if (str.includes("today")) return 0;
                             if (str.includes("yesterday")) return 1;
-                            const match = str.match(/(\\d+)/);
+                            const match = str.match(/(\d+)/);
                             return match ? parseInt(match[1]) : 9999;
                         };
                         xVal = getDays(xVal);
@@ -491,121 +398,7 @@ def generate_activity_page(target_handles, activity_data, html_file):
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account Activity | IG Tracker</title>
-    <style>
-        :root {
-            --slate-50: #f8fafc;
-            --slate-100: #f1f5f9;
-            --slate-200: #e2e8f0;
-            --slate-400: #94a3b8;
-            --slate-500: #64748b;
-            --slate-900: #0f172a;
-            --green-50: #f0fdf4;
-            --green-200: #bbf7d0;
-            --green-500: #22c55e;
-            --green-600: #16a34a;
-            --yellow-50: #fefce8;
-            --yellow-200: #fef08a;
-            --yellow-500: #eab308;
-            --yellow-600: #ca8a04;
-            --red-50: #fef2f2;
-            --red-200: #fecaca;
-            --red-500: #ef4444;
-            --red-600: #dc2626;
-            --blue-50: #eff6ff;
-            --blue-600: #2563eb;
-            --blue-900: #1e3a8a;
-        }
-        
-        body { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background-color: var(--slate-50); margin: 0; padding: 1rem; }
-        @media (min-width: 768px) { body { padding: 2rem; } }
-        
-        .max-w-4xl { max-width: 56rem; margin-left: auto; margin-right: auto; }
-        .flex { display: flex; }
-        .justify-between { justify-content: space-between; }
-        .items-end { align-items: flex-end; }
-        .mb-8 { margin-bottom: 2rem; }
-        .mt-1 { margin-top: 0.25rem; }
-        .mt-2 { margin-top: 0.5rem; }
-        .gap-2 { gap: 0.5rem; }
-        .gap-6 { gap: 1.5rem; }
-        
-        .text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
-        .font-black { font-weight: 900; }
-        .text-slate-900 { color: var(--slate-900); }
-        .tracking-tight { letter-spacing: -0.025em; }
-        .text-slate-500 { color: var(--slate-500); }
-        .text-slate-400 { color: var(--slate-400); }
-        .font-medium { font-weight: 500; }
-        .font-bold { font-weight: 700; }
-        .text-[10px] { font-size: 10px; }
-        .text-sm { font-size: 0.875rem; }
-        .text-xs { font-size: 0.75rem; }
-        .uppercase { text-transform: uppercase; }
-        .tracking-widest { letter-spacing: 0.1em; }
-        
-        .bg-white { background-color: #ffffff; }
-        .border { border-width: 1px; border-style: solid; }
-        .border-slate-200 { border-color: var(--slate-200); }
-        .rounded-xl { border-radius: 0.75rem; }
-        .rounded-3xl { border-radius: 1.5rem; }
-        .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
-        .py-2\.5 { padding-top: 0.625rem; padding-bottom: 0.625rem; }
-        .shadow-sm { box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); }
-        .transition-all { transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
-        .no-underline { text-decoration: none; }
-        
-        .grid { display: grid; }
-        .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
-        @media (min-width: 768px) { .grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-        
-        .p-6 { padding: 1.5rem; }
-        .text-center { text-align: center; }
-        .text-green-500 { color: var(--green-500); }
-        .text-yellow-500 { color: var(--yellow-500); }
-        .text-red-500 { color: var(--red-500); }
-        
-        .bg-white { background-color: #ffffff; }
-        .overflow-hidden { overflow: hidden; }
-        .overflow-x-auto { overflow-x: auto; }
-        .min-w-full { min-width: 100%; }
-        .divide-y > * + * { border-top-width: 1px; }
-        .divide-slate-200 > * + * { border-color: var(--slate-200); }
-        
-        th, td { padding: 1rem 1.5rem; text-align: left; }
-        th { background-color: var(--slate-50); font-size: 0.75rem; font-weight: 900; color: var(--slate-500); text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; border-bottom: 1px solid var(--slate-200); }
-        th:hover { background-color: var(--slate-100); }
-        td { border-bottom: 1px solid var(--slate-200); }
-        .text-right { text-align: right; }
-        .text-center { text-align: center; }
-        
-        .inline-flex { display: inline-flex; align-items: center; }
-        .gap-1\.5 { gap: 0.375rem; }
-        .px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
-        .py-1 { padding-top: 0.25rem; padding-bottom: 0.25rem; }
-        .rounded-full { border-radius: 9999px; }
-        .w-2 { width: 0.5rem; }
-        .h-2 { height: 0.5rem; }
-        
-        .text-green-600 { color: var(--green-600); }
-        .bg-green-50 { background-color: var(--green-50); }
-        .border-green-200 { border-color: var(--green-200); }
-        .bg-green-500 { background-color: var(--green-500); }
-        
-        .text-yellow-600 { color: var(--yellow-600); }
-        .bg-yellow-50 { background-color: var(--yellow-50); }
-        .border-yellow-200 { border-color: var(--yellow-200); }
-        .bg-yellow-500 { background-color: var(--yellow-500); }
-        
-        .text-red-600 { color: var(--red-600); }
-        .bg-red-50 { background-color: var(--red-50); }
-        .border-red-200 { border-color: var(--red-200); }
-        .bg-red-500 { background-color: var(--red-500); }
-        
-        .text-blue-600 { color: var(--blue-600); }
-        .bg-blue-50 { background-color: var(--blue-50); }
-        .hover\:text-blue-900:hover { color: var(--blue-900); }
-        .rounded-md { border-radius: 0.375rem; }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-slate-50 p-4 md:p-8">
     <div class="max-w-4xl mx-auto">
@@ -615,7 +408,7 @@ def generate_activity_page(target_handles, activity_data, html_file):
                 <p class="text-slate-500 font-medium">Monitoring upload frequency for all accounts</p>
                 <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">Last Data Fetch: {last_updated}</p>
             </div>
-            <a href="index.html" class="bg-white text-slate-900 border border-slate-200 px-6 py-2.5 rounded-xl font-bold text-sm hover:bg-slate-50 transition-all flex items-center gap-2 shadow-sm no-underline">
+            <a href="index.html" class="bg-white text-slate-900 border border-slate-200 px-6 py-2.5 rounded-xl font-bold text-sm hover:bg-slate-50 transition-all flex items-center gap-2 shadow-sm">
                 Back to Dashboard
             </a>
         </header>
